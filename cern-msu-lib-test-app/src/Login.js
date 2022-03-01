@@ -1,24 +1,25 @@
-import {useState, useEffect, useRef} from 'react';
-import {Navigate, useLocation} from 'react-router';
+import {useState, useEffect} from 'react';
+import {Navigate} from 'react-router';
 import './Login.css';
 
+//Login.js makes user signin with correct username and password
 function Login() {
 
   const [submitted, setSubmitted] = useState(false);
-
-  const usernameReff = useRef(null);
-  const passwordReff = useRef(null);
   const [uState, setUstate] = useState({value: ''});
   const [pState, setPstate] = useState({value: ''});
 
+//update the state of username when typing
   const handleChangeU = (event) => {
     setUstate({value: event.target.value})
   }
 
+//update the state of password when typing
   const handleChangeP = (event) => {
     setPstate({value: event.target.value})
   }
 
+//check the credentials and takes user to home page if correct
   const handleSubmit = (event) => {
     if (uState.value == 'ct1353' && pState.value == 'cern1234') {
       setSubmitted(true)

@@ -4,17 +4,20 @@ import {Link, Route} from 'react-router-dom';
 import GuideList from './GuideList';
 import './Home.css';
 
+//Home.js displays libguides information
 function Home() {
 
   const name = localStorage.getItem("name");
   const [allGuide, setAllGuide] = useState(null);
   const [select, setSelect] = useState('');
 
+//Set login to false and username to blank in the localStorage
   const logout = () => {
     localStorage.setItem("isLoggedin", false);
     localStorage.setItem("name", '');
   }
 
+//Run once when page loads to get all the guides sorted by name to display
   useEffect(() => {
     fetch('https://lgapi-us.libapps.com/1.1/guides/?site_id=8488&key=0b8da796b00334ae3471f60e6a10e8c6&sort_by=name&sort_dir=asc')
       .then(res => {
@@ -25,11 +28,7 @@ function Home() {
       })
   }, []);
 
-  const showAllGuide = () => {
-      <GuideList allGuide={allGuide} title="All Guides" />
-      console.log('clicked');
-  }
-
+//fetch the data from the api depending on what dropdown option is selected
   const handleSelect = () => {
     if(select.value == 'name'){
       fetch('https://lgapi-us.libapps.com/1.1/guides/?site_id=8488&key=0b8da796b00334ae3471f60e6a10e8c6&sort_by=name&sort_dir=asc')
@@ -69,10 +68,12 @@ function Home() {
         }
   }
 
+//run the fetching whenever the dropdown value changes
   useEffect(() => {
     handleSelect();
   },[select.value]);
 
+//set the new value to the state when dropdown is selected
   const HandleChangeS = (event) => {
     setSelect({value: event.target.value});
   }
@@ -84,9 +85,13 @@ function Home() {
           <Link to="/profile" clasName='navlink'>Profile</Link>
           <Link to="/" onClick={logout} clasName='navlink'>Logout</Link>
         </div>
+
         <div>
-          <h2>Welcome to the Home page, {name}</h2>
-          {/* <button onClick={showAllGuide}>Show All Guides</button> */}
+          <div style={{display: 'flex'}}>
+            <h2 className="welcome">Welcome to the Home page, {name}</h2>
+            <input placeholder="Search guides" className="searchInput"></input>
+            <button clasName="searchBtn">Search</button>
+          </div>
           <label>
           Sort by
             <select onChange={(event) => HandleChangeS(event)} value={select.value}>

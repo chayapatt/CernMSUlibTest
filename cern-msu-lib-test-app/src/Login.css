@@ -20,6 +20,7 @@ input {
   color: #F77401;
   text-shadow: 1px 1px 0.5px black;
   padding: 0.5em;
+  cursor: pointer;
 }
 
 p {
@@ -38,4 +39,5 @@ label {
   color: #F77401;
   text-shadow: 1px 1px 0.5px black;
   border-color: #F77401;
+  cursor: pointer;
 }
