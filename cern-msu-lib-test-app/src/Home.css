@@ -1,0 +1,41 @@
+.navbar {
+  background-color: #F77401;
+  height: 8vh;
+  width: 99vw;
+  top: 0;
+  display: flex;
+  position: sticky;
+}
+
+.libguides {
+  height: 8vh;
+  margin: 0;
+  margin-left: 1em;
+  color: #CBCBCB;
+  text-shadow: 1px 1px 0.5px black;
+  margin-right: 29em;
+}
+
+select {
+  background-color: #CBCBCB;
+  margin-left: 10px;
+  border-radius: 0.3em;
+  border-color: #F77401;
+  font-size: 1em;
+  color: #F77401;
+  text-shadow: 1px 1px 0.5px black;
+  padding: 0.5em;
+}
+
+h2 {
+  text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.guidePrev {
+  margin-left: 5em;
+  text-align: left;
+  padding-left: 2em;
+  border: 1px solid #F77401;
+  width: 50vw;
+  border-radius: 0.3em;
+}
